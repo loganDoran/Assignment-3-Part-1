@@ -15,7 +15,7 @@
 
 ### Get Balance
 
-- Endpoint: `/{user_id}/balance`
+- Endpoint: `/{user_id}/{wallet_id}/balance`
 
 ## Description of resources - formatted as JSON
 
