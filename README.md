@@ -5,19 +5,25 @@
 This api is a wallet. Where you can keep and track your crypto currency. You can send money between wallets/accounts and check how much money you have.
 
 ## List of endpoints with parameters
-
-create wallet
-send money
-check balance
+login -> username, password
+get balance -> wallet, session cookie
 
 ## Description of resources - formatted as JSON
 
 ```JSON
 {
-  "wallet"
-},
+  "user": {
+    "id": "ID",
+    "username": "username",
+    "password": "password"
+  },
 {
-  "transaction"
+  "wallet"{
+    "wallet id": "wallet ID",
+    "owner id": "owner ID",
+    "balance": "balance",
+    "currency": "currency" 
+  }
 }
 ```
 
