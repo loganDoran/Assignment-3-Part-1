@@ -1,6 +1,7 @@
 # 3040Crypto API
 
 ## API Description
+
 3040Crypto API is designed to manage and facilitate crypto currency management. Allowing the user to access an account, and receive their currency specific balance.
 
 ## List of endpoints with parameters
@@ -12,7 +13,7 @@
   - `username`
   - `password`
 
-## Get Balance
+### Get Balance
 
 - Endpoint: `/{user_id}/balance`
 
