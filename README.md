@@ -1,8 +1,7 @@
 # 3040Crypto API
 
 ## API Description
-
-This api is a wallet. Where you can keep and track your crypto currency. You can send money between wallets/accounts and check how much money you have.
+3040Crypto API is designed to manage and facilitate crypto currency management. Allowing the user to access an account, and receive their currency specific balance.
 
 ## List of endpoints with parameters
 
