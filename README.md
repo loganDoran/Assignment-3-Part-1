@@ -8,7 +8,7 @@
 
 ### Login
 
-- Endpoint: `/login?username=sample&password=1234`
+- Endpoint: `/login`
 - Parameters:
   - `username`: User's name.
   - `password`: User's password.
@@ -24,6 +24,7 @@
 
 - Endpoint: `/wallet/balance`
 - Parameters:
+  - `user_id`: ID of the user.
   - `wallet_id`: ID of the wallet.
 - Description: Retrieves the balance of the specified wallet.
 
