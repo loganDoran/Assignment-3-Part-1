@@ -8,7 +8,7 @@
 
 ### Login
 
-- Endpoint: `/login`
+- Endpoint: `/login?username=sample&password=1234`
 - Parameters:
   - `username`: User's name.
   - `password`: User's password.
@@ -32,14 +32,14 @@
 ```JSON
 {
   "user": {
-    "id": "ID",
+    "id": 123,
     "username": "username",
     "password": "password"
   },
 {
   "wallet"{
     "wallet id": "wallet ID",
-    "owner id": "owner ID",
+    "owner id": 123,
     "balance": "balance",
     "currency": "currency"
   }
