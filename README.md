@@ -10,12 +10,22 @@
 
 - Endpoint: `/login`
 - Parameters:
-  - `username`
-  - `password`
+  - `username`: User's name.
+  - `password`: User's password.
+
+### Get Wallets
+
+- Endpoint: `/wallets`
+- Parameters:
+  - `user_id`: ID of the user.
+- Description: Retrieves all wallets associated with the specified user.
 
 ### Get Balance
 
-- Endpoint: `/{user_id}/{wallet_id}/balance`
+- Endpoint: `/wallet/balance`
+- Parameters:
+  - `wallet_id`: ID of the wallet.
+- Description: Retrieves the balance of the specified wallet.
 
 ## Description of resources - formatted as JSON
 
@@ -41,7 +51,7 @@
 ### Sample Request
 
 ```http
-GET /login HTTP/1.1
+POST /login HTTP/1.1
 Content-Type: application/json
 
 username=myusername&password=mypassword
@@ -51,4 +61,10 @@ username=myusername&password=mypassword
 
 ```http
 HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "status": "success",
+  "user_id": 123
+}
 ```
