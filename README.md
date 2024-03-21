@@ -2,27 +2,17 @@
 
 ## API Description
 
-3040Crypto's API is designed to help user's securely manage their cryptocurrency. 
-By providing the user with security through the use of user accounts. 
-Thus, in order to view or interact with their cryptocurrency they will need to login to a 3040Crypto account. 
-Then once logged in they will be able to view all of their wallets and the balance of each individual wallet.
+This API is designed to help users view their 3040Crypto wallets, their wallets contents and transaction history. 
+It accomplishes this through the use of three simple endpoints. 
 
 ## List of endpoints with parameters
 
-### Login
-
-- Endpoint: POST `/login?username=user&password=pass`
-- Parameters:
-  - `username`: User's username.
-  - `password`: User's password.
-- Description: This endpoint logins a user through a post request by creating a new user session. 
-
 ### Get Wallets
 
-- Endpoint: GET `/wallets/{user_id}`
+- Endpoint: GET `/wallets/{username}`
 - Parameters:
-  - `user_id`: ID of the user.
-- Description: This endpoint retrieves all wallets associated with the specified user through a get request.
+  - `username`: a user's 3040Crypto username.
+- Description: This endpoint retrieves a list of wallet ID's that are associated with a username by making a get request.
 
 ### Get Balance
 
@@ -31,7 +21,19 @@ Then once logged in they will be able to view all of their wallets and the balan
   - `wallet_id`: ID of the wallet.
 - Description: This endpoint retrieves the balance of a specified wallet through a get request.
 
+### Get Transactions
+
+- Endpoint: GET `/transactions/{wallet_id}`
+- Parameters:
+  - `wallet_id`: ID of the wallet.
+- Description: This endpoint retrieves all transactions associated with the specified wallet through a get request.
+
 ## Description of resources - formatted as JSON
+
+In the following description of resources the first three objects which are user, wallet and transaction represent how the users, wallets and transactions would be stored on 3040Cryptos servers. 
+While the last three objects which are userWallets, walletBalance and userTransactions represent the objects returned by the http responses to the three API requests outlined above. 
+Where userTransactions is returned by the get transactions endpoint, userWallets is returned by the get wallets endpoint and the walletBalance object is returned by the get balance endpoint.
+
 
 ```JSON
 {
@@ -45,35 +47,37 @@ Then once logged in they will be able to view all of their wallets and the balan
     "wallet_id": 1234,
     "user_id": 123,
     "balance": "balance",
-    "currency": "currency"
+    "currency": "currency",
+    "transactions": [12345]
   },
-  "serverSession": {
-    "session_id": 12,
-    "user_id": 123,
-    "valid": true
-  },
-  "userSession": {
-    "user_id": 123,
-    "valid": true
-  },
+  "transaction": {
+    "transaction_id": 12345,
+    "wallet_id": 1234,
+    "amount" 125.50,
+    "source": 1234,
+    "destination": 71
+  }
   "userWallets": [1, 1234, 71, 21],
   "walletBalance": {
     "balance": "balance",
     "currency": "currency"
-  }
+  },
+  "userTransactions": [{
+    "transaction_id": 12345,
+    "wallet_id": 1234,
+    "amount" 125.50,
+    "source": 1234,
+    "destination": 71
+  }]
 }
 ```
-
-In the above JSON the first three objects which are user, wallet and serverSession represent how the data is stored on the server's side. 
-While the last three objects which are userSession, userWallets and walletBalance represent the objects returned by the http responses to the three API requests outlined above. 
-Where userSession is returned by the login endpoint, userWallets is returned by the get wallets endpoint and the walletBalance object is returned by the get balance endpoint.
 
 ## Sample request with sample response
 
 ### Sample Request
 
 ```http
-POST /login?username=user&password=pass HTTP/1.1
+GET /wallets/123 HTTP/1.1
 Content-Type: application/json
 
 
@@ -84,12 +88,6 @@ Content-Type: application/json
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Set-Cookie: sessionId="12"
 
-{
-  "userSession": {
-    "user_id": 123,
-    "valid": true
-  }
-}
+{"userWallets": [1, 1234, 71, 21]}
 ```
