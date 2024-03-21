@@ -18,21 +18,21 @@ It accomplishes this through the use of three simple endpoints.
 
 - Endpoint: GET `/balance/{wallet_id}`
 - Parameters:
-  - `wallet_id`: ID of the wallet.
+  - `wallet_id`: ID of the desired wallet.
 - Description: This endpoint retrieves the balance of a specified wallet through a get request.
 
 ### Get Transactions
 
 - Endpoint: GET `/transactions/{wallet_id}`
 - Parameters:
-  - `wallet_id`: ID of the wallet.
+  - `wallet_id`: ID of the desired wallet.
 - Description: This endpoint retrieves all transactions associated with the specified wallet through a get request.
 
 ## Description of resources - formatted as JSON
 
-In the following description of resources the first three objects which are user, wallet and transaction represent how the users, wallets and transactions would be stored on 3040Cryptos servers. 
+In the following description of resources the first three objects which are user, wallet and transaction represent how users, wallets and transactions would be stored on 3040Cryptos servers. 
 While the last three objects which are userWallets, walletBalance and userTransactions represent the objects returned by the http responses to the three API requests outlined above. 
-Where userTransactions is returned by the get transactions endpoint, userWallets is returned by the get wallets endpoint and the walletBalance object is returned by the get balance endpoint.
+Where userTransactions is returned by get transactions, userWallets is returned by get wallets and walletBalance is returned by get balance.
 
 
 ```JSON
