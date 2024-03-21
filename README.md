@@ -31,6 +31,7 @@ It accomplishes this through the use of three simple endpoints.
 ## Description of resources - formatted as JSON
 
 In the following description of resources the first three objects which are user, wallet and transaction represent how users, wallets and transactions would be stored on 3040Cryptos servers. 
+
 While the last three objects which are userWallets, walletBalance and userTransactions represent the objects returned by the http responses to the three API requests outlined above. 
 Where userTransactions is returned by get transactions, userWallets is returned by get wallets and walletBalance is returned by get balance.
 
